@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Geisternetz melden</title>
+</h:head>
+<h:body>
+    <h1>Neues Geisternetz melden</h1>
+
+    <h:form>
+        <h:panelGrid columns="2">
+
+            <h:outputLabel value="Ort:"/>
+            <h:inputText value="#{ghostNetController.ghostNet.location}"/>
+
+            <h:outputLabel value="Größe:"/>
+            <h:inputText value="#{ghostNetController.ghostNet.size}"/>
+
+            <h:outputLabel value="Name des Melders:"/>
+            <h:inputText value="#{ghostNetController.ghostNet.reportingPerson.name}"/>
+
+            <h:outputLabel value="Telefon des Melders:"/>
+            <h:inputText value="#{ghostNetController.ghostNet.reportingPerson.phone}"/>
+
+            <h:outputLabel value="Typ des Melders:"/>
+            <h:selectOneMenu value="#{ghostNetController.ghostNet.reportingPerson.type}">
+                <f:selectItems value="#{ghostNetController.personTypes}"/>
+            </h:selectOneMenu>
+
+        </h:panelGrid>
+
+        <h:commandButton value="Melden" action="#{ghostNetController.save}"/>
+    </h:form>
+
+    <h:form>
+        <h:commandLink value="Zurück zur Übersicht" action="index.xhtml"/>
+    </h:form>
+</h:body>
+</html>
